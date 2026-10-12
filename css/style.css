@@ -1,0 +1,338 @@
+/* ========================================= */
+/* 1. التصفير والإعدادات الأساسية */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* تنقل ناعم بين الأقسام */
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden; /* يمنع ظهور شريط التمرير العرضي المزعج */
+}
+
+/* ========================================= */
+/* 2. تنسيق الهيدر (القائمة العلوية) */
+/* ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #1a1a1a;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* عشان يثبت فوق وماتغطي عليه الصور */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header nav a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.header nav a:hover, .header nav a.active {
+    color: #ffffff;
+}
+
+/* ========================================= */
+/* 3. تنسيق معرض الصور */
+/* ========================================= */
+.main-content {
+    padding: 40px 5%;
+}
+
+.gallery {
+    display: grid;
+    /* الترتيب السحري للشاشات: ما يقل المربع عن 280px ويتوزع تلقائي */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background-color: #1e1e1e;
+    aspect-ratio: 1 / 1; /* يخلي الصور كلها مربعات متساوية وفخمة */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ========================================= */
+/* 4. تنسيق قسم عن الرسام */
+/* ========================================= */
+.about-section {
+    padding: 80px 5%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    width: 100%;
+    direction: rtl; /* اتجاه عربي من اليمين لليسار */
+}
+
+.about-image {
+    flex: 1;
+    max-width: 400px;
+    width: 100%;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+    text-align: right;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #ff3e3e;
+    border-radius: 2px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.info-list li {
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-list li span {
+    font-weight: bold;
+    color: #ffffff;
+    min-width: 90px;
+}
+
+.skills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.skills span {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    border: 1px solid #3d3d3d;
+}
+
+/* ========================================= */
+/* 5. تنسيق قسم التواصل والفوتر */
+/* ========================================= */
+.contact-section {
+    padding: 80px 5% 40px 5%;
+    background-color: #121212;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: #ff3e3e;
+    border-radius: 2px;
+}
+
+.contact-subtitle {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.social-icon i {
+    font-size: 22px;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+.social-icon.pinterest:hover {
+    background-color: #bd081c;
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+.social-icon.email:hover {
+    background-color: #ff3e3e;
+    border-color: transparent;
+    transform: translateY(-5px);
+}
+
+.footer {
+    border-top: 1px solid #222;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.footer p {
+    color: #666666;
+    font-size: 14px;
+}
+
+/* ========================================= */
+/* 6. الميديا كويري الشامل للريسبونسيف (شاشات الجوال والتابلت) */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* تظبيط الهيدر بالجوال */
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .header nav {
+        gap: 15px;
+    }
+
+    .header nav a {
+        font-size: 15px;
+    }
+
+    /* تظبيط قسم About Me ينقلب عمودي */
+    .about-container {
+        flex-direction: column; /* الكلام فوق والصورة تحت */
+        text-align: center;
+        gap: 35px;
+    }
+
+    .about-image {
+        max-width: 280px; /* تصغير حجم الصورة عشان تناسب الجوال */
+        margin: 0 auto;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-text h2::after {
+        right: 50%;
+        transform: translateX(50%); /* التوسط تحت العنوان */
+    }
+
+    .info-list li {
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .skills {
+        justify-content: center;
+    }
+
+    /* أزرار السوشيال ميديا بالجوال */
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-icon {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
